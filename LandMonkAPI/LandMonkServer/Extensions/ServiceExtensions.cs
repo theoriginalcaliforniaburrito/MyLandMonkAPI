@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder; 
 
 
-namespace AccountOwnerServer.Extensions
+namespace LandMonkServer.Extensions
 {
     public static class ServiceExtensions
     {
