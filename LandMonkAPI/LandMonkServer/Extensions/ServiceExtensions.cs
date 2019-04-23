@@ -1,3 +1,4 @@
+
 using System; 
 using Microsoft.Extensions.DependencyInjection; 
 using Microsoft.AspNetCore.Builder; 
@@ -5,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 
 namespace LandMonkServer.Extensions
 {
+
     public static class ServiceExtensions
     {
         public static void ConfigureCors(this IServiceCollection services)
@@ -25,11 +27,5 @@ namespace LandMonkServer.Extensions
 
             });
         }
-
-
-
-
-
-		
     }
 }
