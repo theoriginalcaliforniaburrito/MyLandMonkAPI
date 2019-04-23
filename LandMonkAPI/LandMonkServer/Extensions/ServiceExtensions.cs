@@ -1,6 +1,10 @@
-using System; 
-using Microsoft.Extensions.DependencyInjection; 
-using Microsoft.AspNetCore.Builder; 
+using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using NLog; 
+using Contracts; 
+using LoggerService;
+
 
 
 namespace LandMonkServer.Extensions
@@ -25,11 +29,14 @@ namespace LandMonkServer.Extensions
 
             });
         }
+        public static void ConfigureLoggerService(this IServiceCollection services)
+        {
+            services.AddSingleton<ILoggerManager, LoggerManager>();
+        }
 
 
 
 
 
-		
     }
 }
