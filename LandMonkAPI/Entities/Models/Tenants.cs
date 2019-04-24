@@ -9,7 +9,7 @@ namespace Entities.Models
    {
        [Key]
        [Column("TenantId")]
-       public Guid Id { get; set; }
+       public int Id { get; set; }
 
        [Required(ErrorMessage = "First name is required")]
        public string FirstName { get; set; }
@@ -21,6 +21,6 @@ namespace Entities.Models
        public string Email { get; set; }
 
        [Required(ErrorMessage = "CellPhone is required")]
-       public int CellPhone { get; set; }
+       public string CellPhone { get; set; }
    }
 }

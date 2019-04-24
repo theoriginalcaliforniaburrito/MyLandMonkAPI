@@ -4,16 +4,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Models
 {
-    [Table("property")]
+    [Table("properties")]
     public class Property : IEntity
     {
         [Key]
         [Column("PropertyId")]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "Property name is required")]
         [StringLength(60, ErrorMessage = "Property name can't be longer than 60 characters")]
-        public string Name { get; set; }
+        public string PropertyName { get; set; }
 
         [Required(ErrorMessage = "Address is required")]
         [StringLength(100, ErrorMessage = "Address can't be longer than 100 characters")]
@@ -26,6 +26,6 @@ namespace Entities.Models
         public string State { get; set; }
 
           [Required(ErrorMessage = "Zip code is required")]
-        public int ZipCode { get; set; }
+        public string ZipCode { get; set; }
     }
 }

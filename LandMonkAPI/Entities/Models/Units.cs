@@ -8,8 +8,8 @@ namespace Entities.Models
    public class Units : IEntity
    {
        [Key]
-       [Column("UnitsId")]
-       public Guid Id { get; set; }
+       [Column("UnitId")]
+       public int Id { get; set; }
 
        [Required(ErrorMessage = "Unit name is required")]
        public string UnitName { get; set; }
@@ -18,12 +18,12 @@ namespace Entities.Models
        public int BedroomCount { get; set; }
 
        [Required(ErrorMessage = "Bathroom count is required")]
-       public int BathroomCount { get; set; }
+       public float BathroomCount { get; set; }
 
        [Required(ErrorMessage = "Square footage is required")]
        public int SquareFootage { get; set; }
 
        [Required(ErrorMessage = "Property Id is required")]
-       public Guid PropertyId { get; set; }
+       public int PropertyId { get; set; }
    }
 }
