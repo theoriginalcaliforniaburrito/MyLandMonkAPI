@@ -1,7 +1,12 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using NLog;
+using Contracts;
+using Entities;
+using LoggerService;
 
-using System; 
-using Microsoft.Extensions.DependencyInjection; 
-using Microsoft.AspNetCore.Builder; 
 
 
 namespace LandMonkServer.Extensions
@@ -27,5 +32,18 @@ namespace LandMonkServer.Extensions
 
             });
         }
+        public static void ConfigureLoggerService(this IServiceCollection services)
+        {
+            services.AddSingleton<ILoggerManager, LoggerManager>();
+        }
+
+
+        public static void ConfigureMySqlContext(this IServiceCollection services, IConfiguration config)
+        {
+            var connectionString = config["mysqlconnection:connectionString"];
+            services.AddDbContext<RepositoryContext>(o => o.UseMySql(connectionString));
+        }
+
+
     }
 }
