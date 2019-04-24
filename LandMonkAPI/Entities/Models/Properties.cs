@@ -12,7 +12,7 @@ namespace Entities.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Property name is required")]
-        [StringLength(60, ErrorMessage = "Property name can't be longer than 60 characters")]
+        [StringLength(100, ErrorMessage = "Property name can't be longer than 100 characters")]
         public string PropertyName { get; set; }
 
         [Required(ErrorMessage = "Address is required")]
