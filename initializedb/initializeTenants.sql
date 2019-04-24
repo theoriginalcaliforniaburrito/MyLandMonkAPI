@@ -1,0 +1,10 @@
+insert into Tenants values (default, 'Cornelle', 'Frostick', 'cfrostick0@tiny.cc', '459-511-9436'),
+ (default, 'Myrtice', 'Beadnall', 'mbeadnall1@bigcartel.com', '147-781-4426'),
+ (default, 'Darnall', 'Janic', 'djanic2@geocities.com', '157-367-5498'),
+ (default, 'Eleonore', 'Baton', 'ebaton3@dot.gov', '475-109-3062'),
+ (default, 'Keri', 'Bryer', 'kbryer4@netscape.com', '431-978-1390'),
+ (default, 'Rafferty', 'Margetts', 'rmargetts5@cnn.com', '137-746-7142'),
+ (default, 'Lura', 'Morais', 'lmorais6@army.mil', '250-336-1655'),
+ (default, 'Boonie', 'Saffill', 'bsaffill7@mtv.com', '495-839-0664'),
+ (default, 'Eugenie', 'Besset', 'ebesset8@etsy.com', '419-443-1995'),
+ (default, 'Zenia', 'Gooderick', 'zgooderick9@1und1.de', '976-520-4350');
