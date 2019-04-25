@@ -23,7 +23,7 @@ namespace TenantServer.Controllers
         {
             try
             {
-                var tenants = _repository.Tenant.GetAlltenants(); 
+                var tenants = _repository.Tenant.GetAllTenants(); 
                 _logger.LogInfo($"Returned al tenants from database.");
                 return Ok(tenants); 
             }
@@ -60,9 +60,7 @@ namespace TenantServer.Controllers
         }
 
 
-        
-
-
+    
     }
 }
 
