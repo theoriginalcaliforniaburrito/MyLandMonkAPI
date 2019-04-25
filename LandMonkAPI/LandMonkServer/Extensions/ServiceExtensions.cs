@@ -6,7 +6,7 @@ using NLog;
 using Contracts;
 using Entities;
 using LoggerService;
-
+using Repository;
 
 
 namespace LandMonkServer.Extensions
@@ -44,6 +44,9 @@ namespace LandMonkServer.Extensions
             services.AddDbContext<RepositoryContext>(o => o.UseMySql(connectionString));
         }
 
-
+        public static void ConfigureRepositoryWrapper(this IServiceCollection services)
+        {
+            services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
+        }
     }
 }
