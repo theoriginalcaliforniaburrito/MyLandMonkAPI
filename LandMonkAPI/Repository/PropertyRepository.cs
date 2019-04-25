@@ -15,6 +15,13 @@ namespace Repository
             
         }
 
-
+        public PropertyExtended GetPropertyWithDetails(int propertyId) // use int not GUID
+        {
+            return new PropertyExtended(GetPropertyById(propertyId))
+            {
+                Units = RepositoryContext.Units
+                    .Where(a => a.PropertyId == propertyId)
+            };
+        }     
     }
 }
