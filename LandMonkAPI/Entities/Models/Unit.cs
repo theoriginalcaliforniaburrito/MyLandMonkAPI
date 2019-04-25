@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Entities.Models
 {
    [Table("units")]
-   public class Units : IEntity
+   public class Unit : IEntity
    {
        [Key]
        [Column("UnitId")]

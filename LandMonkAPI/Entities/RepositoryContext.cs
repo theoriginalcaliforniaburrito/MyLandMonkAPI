@@ -11,8 +11,8 @@ namespace Entities
             
         }
 
-        public DbSet<Tenants> Tenants { get; set; }
-        public DbSet<Units> Units { get; set; }
-        public DbSet<Properties> Properties { get; set; }
+        public DbSet<Tenant> Tenants { get; set; }
+        public DbSet<Unit> Units { get; set; }
+        public DbSet<Property> Properties { get; set; }
     }
 }
