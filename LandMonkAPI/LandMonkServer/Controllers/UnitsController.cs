@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using Contracts;
 using Entities.Models;
+using Entities.Extensions;
 
 namespace LandMonkServer.Controllers
 {
@@ -34,6 +35,28 @@ namespace LandMonkServer.Controllers
             catch (Exception ex)
             {
                 _logger.LogError($"Something went wrong inside GetAllUnits action: {ex.Message}");
+                return StatusCode(500, "Internal server error");
+            }
+        }
+        [HttpGet("{id}", Name = "UnitById")]
+        public IActionResult GetUnitById(int id)
+        {
+            try
+            {
+                var Unit = _repository.Unit.GetUnitById(id);
+
+                if (Unit.IsEmptyObject())
+                {
+                    _logger.LogError($"Unit with id {id} was not found");
+                    return NotFound();
+                }
+                _logger.LogInfo($"Returned Unit with id {id}");
+                return Ok(Unit);
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong inside GetUnitById action: {ex.Message}");
                 return StatusCode(500, "Internal server error");
             }
         }
