@@ -7,6 +7,6 @@ namespace Contracts
     public interface ITenantRepository : IRepositoryBase<Tenant>
     {
         IEnumerable<Tenant> GetAllTenants(); 
-        Tenant GetTenantById(Guid tenantID);
+        Tenant GetTenantById(int tenantID);
     }
 }

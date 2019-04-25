@@ -20,9 +20,9 @@ namespace Repository
                 .OrderBy(ten => ten.LastName);
         }
 
-        public Tenant GetTenantById(Guid tenantId)
+        public Tenant GetTenantById(int tenantId)
         {
-            return FindByCondition(tenantId => tenantId.Id.Equals(tenantId))
+            return FindByCondition(tenant => tenant.Id.Equals(tenantId))
                 .FirstOrDefault();
         }
     }

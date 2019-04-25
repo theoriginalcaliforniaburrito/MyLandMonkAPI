@@ -35,7 +35,7 @@ namespace TenantServer.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetTenantById(Guid id)
+        public IActionResult GetTenantById(int id)
         {
             try
             {
