@@ -7,6 +7,7 @@ namespace Repository
         private RepositoryContext _repoContext;
         private IPropertyRepository _property;
         private IUnitRepository _unit;
+        private ITenantRepository _tenant;
 
 
 
@@ -32,6 +33,16 @@ namespace Repository
                     _unit = new UnitRepository(_repoContext);
                 }
                 return _unit;
+            }
+        }
+
+        public ITenantRepository Tenant {
+            get {
+                if (_tenant == null)
+                {
+                    _tenant = new TenantRepository(_repoContext);
+                }
+                return _tenant;
             }
         }
     }

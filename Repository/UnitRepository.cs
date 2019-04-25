@@ -17,39 +17,5 @@ namespace Repository
             
         }
 
-        public IEnumerable<Unit> UnitsByProperty(Guid propertyId)
-        {
-            return FindByCondition(a => a.PropertyId.Equals(propertyId));
-        }
-
-        public IEnumerable<Unit> GetAllUnits()
-        {
-            return FindAll()
-                .OrderBy(o => o.DateCreated);
-        }
-        public Unit GetUnitById(Guid unitId)
-        {
-            return FindByCondition(unit => unit.Id.Equals(unitId))
-            .DefaultIfEmpty(new Unit())
-            .FirstOrDefault();
-        }
-        public void CreateUnit(Unit unit)
-        {
-            unit.Id = Guid.NewGuid();
-            Create(unit);
-            Save();
-        }
-        public void UpdateUnit(Unit dbUnit, Unit unit)
-        {
-            dbUnit.Map(unit);
-            Update(dbUnit);
-            Save();
-        }
-
-        public void DeleteUnit(Unit unit)
-        {
-            Delete(unit);
-            Save();
-        }
     }
 }

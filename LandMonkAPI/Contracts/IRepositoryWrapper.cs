@@ -8,5 +8,6 @@ namespace Contracts
         IPropertyRepository Property { get; }
 
         IUnitRepository Unit { get; }
+        ITenantRepository Tenant { get; }
     }
 }
