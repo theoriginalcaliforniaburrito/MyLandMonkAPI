@@ -335,3 +335,7 @@ ASALocalRun/
 LandMonkAPI/LandMonkServer/appsettings.json
 LandMonkAPI/LandMonkServer/logs/2019-04-24_logfile.txt
 LandMonkAPI/LandMonkServer/internal_logs/internallog.txt
+*.txt
+*.json
+LandMonkAPI/LandMonkServer/appsettings.json
+LandMonkAPI/LandMonkServer/appsettings.json

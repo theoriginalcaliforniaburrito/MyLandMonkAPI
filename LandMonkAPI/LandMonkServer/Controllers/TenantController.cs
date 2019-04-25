@@ -18,28 +18,28 @@
 //             _repository = repository; 
 //         }
 
-//         [HttpGet]
-//         public IActionResult GetAllTenants()
-//         {
-//             try
-//             {
-//                 var tenants = _repository.Tenant.GetAlltenants(); 
-//                 _logger.LogInfo($"Returned al tenants from database.");
-//                 return Ok(tenants); 
-//             }
-//             catch (Exception ex)
-//             {
-//                 _logger.LogError($"Something went wrong inside GetAlltenants action : {ex.Message}"); 
-//                 return StatusCode(500, "Internal server error"); 
-//             }
-//         }
+        [HttpGet]
+        public IActionResult GetAllTenants()
+        {
+            try
+            {
+                var tenants = _repository.Tenant.GetAllTenants(); 
+                _logger.LogInfo($"Returned al tenants from database.");
+                return Ok(tenants); 
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong inside GetAlltenants action : {ex.Message}"); 
+                return StatusCode(500, "Internal server error"); 
+            }
+        }
 
-//         [HttpGet("{id}")]
-//         public IActionResult GetTenantById(Guid id)
-//         {
-//             try
-//             {
-//                 var tenant = _repository.Tenant.GetTenantById(id);
+        [HttpGet("{id}")]
+        public IActionResult GetTenantById(int id)
+        {
+            try
+            {
+                var tenant = _repository.Tenant.GetTenantById(id);
 
 //                 if (tenant == null)
 //                 {
@@ -60,10 +60,8 @@
 //         }
 
 
-        
-
-
-//     }
-// }
+    
+    }
+}
 
 
