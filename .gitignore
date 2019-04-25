@@ -332,5 +332,4 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
-LandMonkAPI/LandMonkServer/internal_logs/internallog.txt
-LandMonkAPI/LandMonkServer/logs/2019-04-24_logfile.txt
+LandMonkAPI/LandMonkServer/appsettings.json
