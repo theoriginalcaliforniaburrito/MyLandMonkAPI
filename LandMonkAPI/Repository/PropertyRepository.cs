@@ -1,5 +1,6 @@
 using Contracts;
 using Entities;
+using Entities.ExtendedModels;
 using Entities.Models;
 using System;
 using System.Linq;

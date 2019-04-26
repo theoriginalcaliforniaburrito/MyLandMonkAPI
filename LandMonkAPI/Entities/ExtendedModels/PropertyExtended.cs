@@ -6,7 +6,7 @@ namespace Entities.ExtendedModels
 {
     public class PropertyExtended : IEntity
     {
-        public int PropertyId { get; set; }
+        public int Id { get; set; }
         public string PropertyName { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
@@ -21,7 +21,7 @@ namespace Entities.ExtendedModels
 
         public PropertyExtended(Property property)
         {
-            PropertyId = property.Id;
+            Id = property.Id;
             PropertyName = property.PropertyName;
             Address = property.Address;
             City = property.City;
