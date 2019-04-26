@@ -12,9 +12,18 @@ namespace Repository
         public TenantRepository(RepositoryContext repositoryContext)
             :base(repositoryContext)
         {
-            
         }
 
+        public IEnumerable<Tenant> GetAllTenants()
+        {
+            return FindAll()
+                .OrderBy(ten => ten.LastName);
+        }
 
+        public Tenant GetTenantById(int tenantId)
+        {
+            return FindByCondition(tenant => tenant.Id.Equals(tenantId))
+                .FirstOrDefault();
+        }
     }
 }
