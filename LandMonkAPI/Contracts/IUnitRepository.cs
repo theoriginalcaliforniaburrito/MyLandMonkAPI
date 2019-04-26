@@ -1,8 +1,12 @@
+using System;
 using Entities.Models;
+using System.Collections.Generic;
  
 namespace Contracts
 {
-    public interface IUnitRepository : IRepositoryBase<Unit>
+    public interface IUnitRepository
     {
+        IEnumerable<Unit> GetAllUnits();
+        Unit GetUnitById(int UnitId);
     }
 }
