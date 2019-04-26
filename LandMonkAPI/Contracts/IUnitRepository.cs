@@ -8,5 +8,6 @@ namespace Contracts
     {
         IEnumerable<Unit> GetAllUnits();
         Unit GetUnitById(int UnitId);
+        void CreateUnit( Unit unit);
     }
 }

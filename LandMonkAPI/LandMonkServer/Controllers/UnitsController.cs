@@ -61,6 +61,33 @@ namespace LandMonkServer.Controllers
             }
         }
 
+        [HttpPost]
+         public IActionResult CreateUnit([FromBody]Unit unit)
+        {
+            try
+            {
+                if (unit.IsObjectNull())
+                {
+                    _logger.LogError("Unit object sent from client is null");
+                    return BadRequest("Unit object is null");
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    _logger.LogError("Invalid unit object sent from client");
+                    return BadRequest("Invalid Unit object");
+                }
+
+                _repository.Unit.CreateUnit(unit);
+
+                return CreatedAtRoute("UnitById", new  { id = unit.Id }, unit);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong inside GetAllUnits action: {ex.Message}");
+                return StatusCode(500, "Internal server error");
+            }
+        }
 
     }
 }
