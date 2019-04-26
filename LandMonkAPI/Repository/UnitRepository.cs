@@ -12,7 +12,18 @@ namespace Repository
         public UnitRepository(RepositoryContext repositoryContext)
             :base(repositoryContext)
         {
-            
+        }
+
+        public IEnumerable<Unit> GetAllUnits()
+        {
+            return FindAll()
+                .OrderBy(unit => unit.UnitName);
+        }
+        public Unit GetUnitById(int UnitId)
+        {
+            return FindByCondition(account => account.Id.Equals(UnitId))
+            .DefaultIfEmpty(new Unit())
+            .FirstOrDefault();
         }
 
     }
