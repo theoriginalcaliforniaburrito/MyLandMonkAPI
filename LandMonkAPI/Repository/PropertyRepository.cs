@@ -15,6 +15,12 @@ namespace Repository
         {
             
         }
+        
+        public IEnumerable<Property> GetAllProperty()
+        {
+            return FindAll()
+                .OrderBy(o => o.PropertyName);
+        }
 
         public PropertyExtended GetPropertyWithDetails(int propertyId) // use int not GUID
         {
@@ -24,5 +30,13 @@ namespace Repository
                     .Where(a => a.PropertyId == propertyId)
             };
         }     
+        public Property GetPropertyById(int propertyId)
+        {
+            return FindByCondition(property => property.Id.Equals(propertyId))
+
+            .DefaultIfEmpty(new Property())
+            .FirstOrDefault();
+        }
+
     }
 }
