@@ -14,7 +14,20 @@ namespace Repository
         {
             
         }
+        
+        public IEnumerable<Property> GetAllProperty()
+        {
+            return FindAll()
+                .OrderBy(o => o.PropertyName);
+        }
 
+        public Property GetPropertyById(int propertyId)
+        {
+            return FindByCondition(property => property.Id.Equals(propertyId))
+
+            .DefaultIfEmpty(new Property())
+            .FirstOrDefault();
+        }
 
     }
 }
