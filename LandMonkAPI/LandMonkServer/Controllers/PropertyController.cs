@@ -21,7 +21,7 @@ namespace LandMonkServer.Controllers
             _repository = repository;
         }
 
-        [HttpGet("{id}/account")]
+        [HttpGet("{id}/unit")]
         public IActionResult GetPropertyWithDetails(int id) //use int not GUID
         {
             try
@@ -41,6 +41,9 @@ namespace LandMonkServer.Controllers
             catch (Exception ex)
             {
                 _logger.LogError($"Something went wrong inside GetPropertyWithDetails action: {ex.Message}");
+                return StatusCode(500, "Internal server error");
+            }
+        }
         
          [HttpGet]
         public IActionResult GetAllProperty()
