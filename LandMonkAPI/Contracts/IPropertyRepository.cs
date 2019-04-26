@@ -7,7 +7,7 @@ namespace Contracts
 {
     public interface IPropertyRepository : IRepositoryBase<Property>
     {
-        IEnumerable<Property> GetAllProperties();
+        IEnumerable<Property> GetAllProperty();
         Property GetPropertyById(int propertyId); // use int not GUID
         PropertyExtended GetPropertyWithDetails(int propertyId); // use int not GUID
     }
