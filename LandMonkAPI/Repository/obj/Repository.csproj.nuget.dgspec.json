@@ -1,0 +1,179 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\glarr\\OneDrive\\Documents\\GitHub\\LandMonkAPI\\LandMonkAPI\\Repository\\Repository.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\glarr\\OneDrive\\Documents\\GitHub\\LandMonkAPI\\LandMonkAPI\\Contracts\\Contracts.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\glarr\\OneDrive\\Documents\\GitHub\\LandMonkAPI\\LandMonkAPI\\Contracts\\Contracts.csproj",
+        "projectName": "Contracts",
+        "projectPath": "C:\\Users\\glarr\\OneDrive\\Documents\\GitHub\\LandMonkAPI\\LandMonkAPI\\Contracts\\Contracts.csproj",
+        "packagesPath": "C:\\Users\\glarr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\glarr\\OneDrive\\Documents\\GitHub\\LandMonkAPI\\LandMonkAPI\\Contracts\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\glarr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "C:\\Users\\glarr\\OneDrive\\Documents\\GitHub\\LandMonkAPI\\LandMonkAPI\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\glarr\\OneDrive\\Documents\\GitHub\\LandMonkAPI\\LandMonkAPI\\Entities\\Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Users\\glarr\\OneDrive\\Documents\\GitHub\\LandMonkAPI\\LandMonkAPI\\Entities\\Entities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\glarr\\OneDrive\\Documents\\GitHub\\LandMonkAPI\\LandMonkAPI\\Entities\\Entities.csproj",
+        "projectName": "Entities",
+        "projectPath": "C:\\Users\\glarr\\OneDrive\\Documents\\GitHub\\LandMonkAPI\\LandMonkAPI\\Entities\\Entities.csproj",
+        "packagesPath": "C:\\Users\\glarr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\glarr\\OneDrive\\Documents\\GitHub\\LandMonkAPI\\LandMonkAPI\\Entities\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\glarr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Users\\glarr\\OneDrive\\Documents\\GitHub\\LandMonkAPI\\LandMonkAPI\\Repository\\Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\glarr\\OneDrive\\Documents\\GitHub\\LandMonkAPI\\LandMonkAPI\\Repository\\Repository.csproj",
+        "projectName": "Repository",
+        "projectPath": "C:\\Users\\glarr\\OneDrive\\Documents\\GitHub\\LandMonkAPI\\LandMonkAPI\\Repository\\Repository.csproj",
+        "packagesPath": "C:\\Users\\glarr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\glarr\\OneDrive\\Documents\\GitHub\\LandMonkAPI\\LandMonkAPI\\Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\glarr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "C:\\Users\\glarr\\OneDrive\\Documents\\GitHub\\LandMonkAPI\\LandMonkAPI\\Contracts\\Contracts.csproj": {
+                "projectPath": "C:\\Users\\glarr\\OneDrive\\Documents\\GitHub\\LandMonkAPI\\LandMonkAPI\\Contracts\\Contracts.csproj"
+              },
+              "C:\\Users\\glarr\\OneDrive\\Documents\\GitHub\\LandMonkAPI\\LandMonkAPI\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\glarr\\OneDrive\\Documents\\GitHub\\LandMonkAPI\\LandMonkAPI\\Entities\\Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

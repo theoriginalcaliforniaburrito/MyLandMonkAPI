@@ -1,3 +1,4 @@
+using System.Data.Common;
 using Contracts;
 using Entities;
 using Entities.ExtendedModels;
@@ -36,6 +37,12 @@ namespace Repository
 
             .DefaultIfEmpty(new Property())
             .FirstOrDefault();
+        }
+
+        public void CreateProperty(Property property)
+        {
+            Create(property);
+            Save();
         }
 
     }

@@ -1,0 +1,14 @@
+C:\Users\glarr\OneDrive\Documents\GitHub\LandMonkAPI\LandMonkAPI\LoggerService\bin\Debug\netcoreapp2.2\LoggerService.deps.json
+C:\Users\glarr\OneDrive\Documents\GitHub\LandMonkAPI\LandMonkAPI\LoggerService\bin\Debug\netcoreapp2.2\LoggerService.dll
+C:\Users\glarr\OneDrive\Documents\GitHub\LandMonkAPI\LandMonkAPI\LoggerService\bin\Debug\netcoreapp2.2\LoggerService.pdb
+C:\Users\glarr\OneDrive\Documents\GitHub\LandMonkAPI\LandMonkAPI\LoggerService\bin\Debug\netcoreapp2.2\Contracts.dll
+C:\Users\glarr\OneDrive\Documents\GitHub\LandMonkAPI\LandMonkAPI\LoggerService\bin\Debug\netcoreapp2.2\Entities.dll
+C:\Users\glarr\OneDrive\Documents\GitHub\LandMonkAPI\LandMonkAPI\LoggerService\bin\Debug\netcoreapp2.2\Contracts.pdb
+C:\Users\glarr\OneDrive\Documents\GitHub\LandMonkAPI\LandMonkAPI\LoggerService\bin\Debug\netcoreapp2.2\Entities.pdb
+C:\Users\glarr\OneDrive\Documents\GitHub\LandMonkAPI\LandMonkAPI\LoggerService\obj\Debug\netcoreapp2.2\LoggerService.csprojAssemblyReference.cache
+C:\Users\glarr\OneDrive\Documents\GitHub\LandMonkAPI\LandMonkAPI\LoggerService\obj\Debug\netcoreapp2.2\LoggerService.csproj.CoreCompileInputs.cache
+C:\Users\glarr\OneDrive\Documents\GitHub\LandMonkAPI\LandMonkAPI\LoggerService\obj\Debug\netcoreapp2.2\LoggerService.AssemblyInfoInputs.cache
+C:\Users\glarr\OneDrive\Documents\GitHub\LandMonkAPI\LandMonkAPI\LoggerService\obj\Debug\netcoreapp2.2\LoggerService.AssemblyInfo.cs
+C:\Users\glarr\OneDrive\Documents\GitHub\LandMonkAPI\LandMonkAPI\LoggerService\obj\Debug\netcoreapp2.2\LoggerService.csproj.CopyComplete
+C:\Users\glarr\OneDrive\Documents\GitHub\LandMonkAPI\LandMonkAPI\LoggerService\obj\Debug\netcoreapp2.2\LoggerService.dll
+C:\Users\glarr\OneDrive\Documents\GitHub\LandMonkAPI\LandMonkAPI\LoggerService\obj\Debug\netcoreapp2.2\LoggerService.pdb

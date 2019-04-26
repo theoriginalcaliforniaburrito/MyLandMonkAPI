@@ -64,7 +64,7 @@ namespace LandMonkServer.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "PropertyById")]
         public IActionResult GetPropertyById(int id)
 
         {
@@ -88,6 +88,38 @@ namespace LandMonkServer.Controllers
             catch (Exception ex)
             {
                 _logger.LogError($"Something went wrong inside GetPropertyById action:{ex.Message}");
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+         [HttpPost]
+
+        public IActionResult CreateProperty([FromBody]Property property)
+        {
+            try
+            {
+
+
+                if (property.IsObjectNull())
+                {
+                    _logger.LogError("Property object sent from client is null");
+                    return BadRequest("Property object is null");
+                }
+                if (!ModelState.IsValid)
+                {
+                    _logger.LogError("Invalid property object sent from client");
+                    return BadRequest("Invalid property object");
+                }
+
+                _repository.Property.CreateProperty(property);
+
+                return CreatedAtRoute("PropertyById", new {id = property.Id}, property);
+
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong inside CreateProperty action: {ex.Message}");
                 return StatusCode(500, "Internal server error");
             }
         }
