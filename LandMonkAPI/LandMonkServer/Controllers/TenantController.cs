@@ -2,7 +2,7 @@ using Contracts;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using Entities;
-using Entities.Models; 
+using Entities.Models;
 
 
 namespace TenantServer.Controllers
@@ -60,23 +60,37 @@ namespace TenantServer.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
-        
+
         [HttpPost]
         public IActionResult CreateTenant([FromBody]Tenant tenant)
         {
             try
             {
+                if (tenant == null)
+                {
+                    _logger.LogError("Tenant object sent from client is null.");
+                    return BadRequest("Tenant object is null");
+                }
 
+                if (!ModelState.IsValid)
+                {
+                    _logger.LogError("Invalid Tenant object sent from client.");
+                    return BadRequest("Invalid model object");
+                }
+
+                _repository.Tenant.CreateTenant(tenant);
+                return CreatedAtRoute("TenantById", new { id = tenant.Id }, tenant);
             }
-            catch 
+            catch (Exception ex)
             {
-
+                _logger.LogError($"Something went wrong inside CreateTenant action: {ex.Message}");
+                return StatusCode(500, "Internal server error");
             }
 
 
         }
     }
 }
-    
+
 
 

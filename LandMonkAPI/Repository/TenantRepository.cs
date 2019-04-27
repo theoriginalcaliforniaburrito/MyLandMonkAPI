@@ -10,7 +10,7 @@ namespace Repository
     public class TenantRepository : RepositoryBase<Tenant>, ITenantRepository
     {
         public TenantRepository(RepositoryContext repositoryContext)
-            :base(repositoryContext)
+            : base(repositoryContext)
         {
         }
 
@@ -24,6 +24,12 @@ namespace Repository
         {
             return FindByCondition(tenant => tenant.Id.Equals(tenantId))
                 .FirstOrDefault();
+        }
+
+        public void CreateTenant(Tenant tenant)
+        {
+            Create(tenant);
+            Save();
         }
     }
 }
