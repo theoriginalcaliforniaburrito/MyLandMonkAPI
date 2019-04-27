@@ -26,5 +26,11 @@ namespace Repository
             .FirstOrDefault();
         }
 
+        public void CreateUnit(Unit unit)
+        {
+            Create(unit);
+            Save();
+        }
+
     }
 }
