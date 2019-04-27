@@ -5,7 +5,7 @@ using Entities;
 using Entities.Models;
 
 
-namespace TenantServer.Controllers
+namespace LandMonkServer.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
