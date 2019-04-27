@@ -1,6 +1,8 @@
 using Contracts;
 using Microsoft.AspNetCore.Mvc;
-using System; 
+using System;
+using Entities;
+using Entities.Models; 
 
 
 namespace TenantServer.Controllers
@@ -15,7 +17,7 @@ namespace TenantServer.Controllers
         public TenantController(ILoggerManager logger, IRepositoryWrapper repository)
         {
             _logger = logger;
-            _repository = repository; 
+            _repository = repository;
         }
 
         [HttpGet]
@@ -23,18 +25,18 @@ namespace TenantServer.Controllers
         {
             try
             {
-                var tenants = _repository.Tenant.GetAllTenants(); 
+                var tenants = _repository.Tenant.GetAllTenants();
                 _logger.LogInfo($"Returned al tenants from database.");
-                return Ok(tenants); 
+                return Ok(tenants);
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Something went wrong inside GetAlltenants action : {ex.Message}"); 
-                return StatusCode(500, "Internal server error"); 
+                _logger.LogError($"Something went wrong inside GetAlltenants action : {ex.Message}");
+                return StatusCode(500, "Internal server error");
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "TenantById")]
         public IActionResult GetTenantById(int id)
         {
             try
@@ -44,24 +46,37 @@ namespace TenantServer.Controllers
                 if (tenant == null)
                 {
                     _logger.LogError($"Tenant with id: {id}, hasn't been found in db.");
-                    return NotFound(); 
+                    return NotFound();
                 }
-                else 
+                else
                 {
-                    _logger.LogInfo($"Returned tenant with id: {id}"); 
+                    _logger.LogInfo($"Returned tenant with id: {id}");
                     return Ok(tenant);
                 }
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Something went wrong inside GetTenantById action: {ex.Message}"); 
+                _logger.LogError($"Something went wrong inside GetTenantById action: {ex.Message}");
                 return StatusCode(500, "Internal server error");
             }
         }
+        
+        [HttpPost]
+        public IActionResult CreateTenant([FromBody]Tenant tenant)
+        {
+            try
+            {
+
+            }
+            catch 
+            {
+
+            }
 
 
-    
+        }
     }
 }
+    
 
 
