@@ -1,6 +1,7 @@
 using System;
 using Contracts;
 using Entities;
+using Entities.Extensions;
 using Entities.Models;
 using System.Linq;
 using System.Collections.Generic;
@@ -31,5 +32,21 @@ namespace Repository
             Create(tenant);
             Save();
         }
+
+        public void UpdateTenant(Tenant dbTenant, Tenant tenant)
+        {
+            dbTenant.Map(tenant);
+            Update(dbTenant);
+            Save();
+        }
+
+        public void DeleteTenant(Tenant tenant)
+        {
+            Delete(tenant);
+            Save();
+        }
+
+
+
     }
 }
