@@ -98,8 +98,6 @@ namespace LandMonkServer.Controllers
         {
             try
             {
-
-
                 if (property.IsObjectNull())
                 {
                     _logger.LogError("Property object sent from client is null");

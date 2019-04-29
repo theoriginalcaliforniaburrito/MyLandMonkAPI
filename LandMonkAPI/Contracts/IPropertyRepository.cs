@@ -11,6 +11,6 @@ namespace Contracts
         Property GetPropertyById(int propertyId); // use int not GUID
         PropertyExtended GetPropertyWithDetails(int propertyId); // use int not GUID
 
-        void CreateProperty(Property property);
+        void CreateProperty(Property property);     
     }
 }
