@@ -8,5 +8,6 @@ namespace Contracts
     {
         IEnumerable<Tenant> GetAllTenants(); 
         Tenant GetTenantById(int tenantID);
+        void CreateTenant(Tenant tenant);
     }
 }
