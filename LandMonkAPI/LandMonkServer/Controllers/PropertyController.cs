@@ -44,8 +44,8 @@ namespace LandMonkServer.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
-        
-         [HttpGet]
+
+        [HttpGet]
         public IActionResult GetAllProperty()
 
         {
@@ -64,7 +64,7 @@ namespace LandMonkServer.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "PropertyById")]
         public IActionResult GetPropertyById(int id)
 
         {
@@ -72,7 +72,7 @@ namespace LandMonkServer.Controllers
             {
                 var properties = _repository.Property.GetPropertyById(id);
 
-                if(properties == null)
+                if (properties == null)
                 {
                     _logger.LogError($"Property with id: {id}, hasn't been found in db.");
                     return NotFound();
@@ -91,5 +91,34 @@ namespace LandMonkServer.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
+
+        [HttpPost]
+        public IActionResult CreateProperty([FromBody]Property property)
+        {
+            try
+            {
+                if (property.IsObjectNull())
+                {
+                    _logger.LogError("Property object sent from client is null.");
+                    return BadRequest("Property object is null");
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    _logger.LogError("Invalid property object sent from client.");
+                    return BadRequest("Invalid model object");
+                }
+
+                _repository.Property.CreateProperty(property);
+
+                return CreatedAtRoute("PropertyById", new { id = property.Id }, property);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong inside CreateProperty action: {ex.Message}");
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
     }
 }

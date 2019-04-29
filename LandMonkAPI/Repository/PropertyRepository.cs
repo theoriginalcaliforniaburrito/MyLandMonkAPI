@@ -38,5 +38,10 @@ namespace Repository
             .FirstOrDefault();
         }
 
+        public void CreateProperty(Property prop)
+        {
+            Create(prop);
+            Save();
+        }
     }
 }
