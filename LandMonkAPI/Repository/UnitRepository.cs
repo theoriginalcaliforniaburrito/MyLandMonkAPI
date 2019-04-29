@@ -32,5 +32,11 @@ namespace Repository
             Save();
         }
 
+        public IEnumerable<Unit> UnitsByProperty(int propertyId) {
+            var units = FindByCondition(u => u.PropertyId.Equals(propertyId));
+
+            return units;
+        }
+
     }
 }
