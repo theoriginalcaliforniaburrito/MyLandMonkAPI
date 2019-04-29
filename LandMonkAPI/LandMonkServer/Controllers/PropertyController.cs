@@ -119,6 +119,67 @@ namespace LandMonkServer.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
+        [HttpPut("{id}")]
+        public IActionResult UpdateProperty(int id, [FromBody]Property property)
+        {
+            try
+            {
+                if (property.IsObjectNull())
+                {
+                    _logger.LogError("Property object sent from client is null.");
+                    return BadRequest("Property object is null");
+                }
 
+                if (!ModelState.IsValid)
+                {
+                    _logger.LogError("Invalid property object sent from client.");
+                    return BadRequest("Invalid model object");
+                }
+
+                var dbProperty = _repository.Property.GetPropertyById(id);
+                if (dbProperty.IsEmptyObject())
+                {
+                    _logger.LogError($"Property with id: {id}, hasn't been found in db.");
+                    return NotFound();
+                }
+
+                _repository.Property.UpdateProperty(dbProperty, property);
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong inside UpdateProperty action: {ex.Message}");
+                return StatusCode(500, "Internal server error");
+            }
+        }
+        [HttpDelete("{id}")]
+        public IActionResult DeleteProperty(int id)
+        {
+            try
+            {
+                var property = _repository.Property.GetPropertyById(id);
+                if (property.IsEmptyObject())
+                {
+                    _logger.LogError($"Property with id: {id}, hasn't been found in db.");
+                    return NotFound();
+                }
+
+                if (_repository.Unit.UnitsByProperty(id).Any())
+                {
+                    _logger.LogError($"Cannot delete property with id: {id}. It has related units. Delete those units first.");
+                    return BadRequest("Cannot delete property. It has related units. Delete those units first.");
+
+                }
+                _repository.Property.DeleteProperty(property);
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong inside DeleteProperty action: {ex.Message}");
+                return StatusCode(500, "Internal server error");
+            }
+        }
     }
 }
