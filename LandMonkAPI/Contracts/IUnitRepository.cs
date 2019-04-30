@@ -10,5 +10,7 @@ namespace Contracts
         IEnumerable<Unit> GetAllUnits();
         Unit GetUnitById(int UnitId);
         void CreateUnit( Unit unit);
+        void UpdateUnit(Unit dbUnit, Unit unit);
+        void DeleteUnit(Unit unit);
     }
 }
