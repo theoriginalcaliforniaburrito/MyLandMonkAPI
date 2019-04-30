@@ -13,6 +13,7 @@ namespace Entities.Extensions
             dbUnit.BedroomCount = unit.BedroomCount;
             dbUnit.BathroomCount = unit.BathroomCount;
             dbUnit.SquareFootage = unit.SquareFootage;
+            dbUnit.PropertyId = unit.PropertyId;
         }
     }
 }
