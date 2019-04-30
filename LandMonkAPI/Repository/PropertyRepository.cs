@@ -14,7 +14,8 @@ namespace Repository
         public PropertyRepository(RepositoryContext repositoryContext)
             :base(repositoryContext)
         {
-            
+        
+         
         }
         
         public IEnumerable<Property> GetAllProperty()
