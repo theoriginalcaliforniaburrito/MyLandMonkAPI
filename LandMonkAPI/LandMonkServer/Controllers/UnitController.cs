@@ -62,7 +62,7 @@ namespace LandMonkServer.Controllers
         }
 
         [HttpPost]
-         public IActionResult CreateUnit([FromBody]Unit unit)
+        public IActionResult CreateUnit([FromBody]Unit unit)
         {
             try
             {
@@ -80,7 +80,7 @@ namespace LandMonkServer.Controllers
 
                 _repository.Unit.CreateUnit(unit);
 
-                return CreatedAtRoute("UnitById", new  { id = unit.Id }, unit);
+                return CreatedAtRoute("UnitById", new { id = unit.Id }, unit);
             }
             catch (Exception ex)
             {
@@ -88,6 +88,44 @@ namespace LandMonkServer.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateUnit(int id, [FromBody]Unit unit)
+        {
+            try
+            {
+                if (unit.IsObjectNull())
+                {
+                    _logger.LogError("Unit object sent from client is null");
+                    return BadRequest("Unit object is null");
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    _logger.LogError("Invalid unit object sent from client");
+                    return BadRequest("Invalid Unit object");
+                }
+
+                var dbUnit = _repository.Unit.GetUnitById(id);
+
+                if (dbUnit.IsEmptyObject())
+                {
+                    _logger.LogError($"Unit with id {id} was not found");
+                    return NotFound();
+                }
+                _repository.Unit.UpdateUnit(dbUnit, unit);
+
+                return NoContent();
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong inside GetAllUnits action: {ex.Message}");
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+
 
     }
 }
