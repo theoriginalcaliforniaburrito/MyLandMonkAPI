@@ -46,5 +46,11 @@ namespace Repository
             Save();
         }
 
+        public void DeleteUnit(Unit unit)
+        {
+            Delete(unit);
+            Save();
+        }
+
     }
 }

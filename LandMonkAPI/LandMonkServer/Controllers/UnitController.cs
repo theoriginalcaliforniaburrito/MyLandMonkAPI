@@ -38,6 +38,7 @@ namespace LandMonkServer.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
+
         [HttpGet("{id}", Name = "UnitById")]
         public IActionResult GetUnitById(int id)
         {
@@ -84,7 +85,7 @@ namespace LandMonkServer.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Something went wrong inside GetAllUnits action: {ex.Message}");
+                _logger.LogError($"Something went wrong inside CreateUnit action: {ex.Message}");
                 return StatusCode(500, "Internal server error");
             }
         }
@@ -120,11 +121,34 @@ namespace LandMonkServer.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Something went wrong inside GetAllUnits action: {ex.Message}");
+                _logger.LogError($"Something went wrong inside UpdateUnit action: {ex.Message}");
                 return StatusCode(500, "Internal server error");
             }
         }
 
+        [HttpDelete("{id}")]
+        public IActionResult DeleteUnit(int id)
+        {
+            try
+            {
+                var unit = _repository.Unit.GetUnitById(id);
+
+                if (unit.IsEmptyObject())
+                {
+                    _logger.LogError($"Unit with id {id} was not found");
+                    return NotFound();
+                }
+
+                _repository.Unit.DeleteUnit(unit);
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong inside DeleteUnit action: {ex.Message}");
+                return StatusCode(500, "Internal server error");
+            }
+        }
 
 
     }
