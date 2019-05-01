@@ -2,6 +2,7 @@ using System.Data.Common;
 using Contracts;
 using Entities;
 using Entities.ExtendedModels;
+using Entities.Extensions;
 using Entities.Models;
 using System;
 using System.Linq;
@@ -40,11 +41,21 @@ namespace Repository
             .FirstOrDefault();
         }
 
-        public void CreateProperty(Property property)
+        public void CreateProperty(Property prop)
         {
-            Create(property);
+            Create(prop);
             Save();
-        }   
-
+        }
+        public void UpdateProperty(Property dbProperty, Property prop)
+        {
+            dbProperty.Map(prop);
+            Update(dbProperty);
+            Save();
+        }
+        public void DeleteProperty(Property prop)
+        {
+            Delete(prop);
+            Save();
+        }
     }
 }
