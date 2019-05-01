@@ -1,6 +1,7 @@
 using System;
 using Contracts;
 using Entities;
+using Entities.Extensions;
 using Entities.Models;
 using System.Linq;
 using System.Collections.Generic;
@@ -29,6 +30,25 @@ namespace Repository
         public void CreateUnit(Unit unit)
         {
             Create(unit);
+            Save();
+        }
+
+        public IEnumerable<Unit> UnitsByProperty(int propertyId) {
+            var units = FindByCondition(u => u.PropertyId.Equals(propertyId));
+
+            return units;
+        }
+
+        public void UpdateUnit(Unit dbUnit, Unit unit)
+        {
+            dbUnit.Map(unit);
+            Update(dbUnit);
+            Save();
+        }
+
+        public void DeleteUnit(Unit unit)
+        {
+            Delete(unit);
             Save();
         }
 
