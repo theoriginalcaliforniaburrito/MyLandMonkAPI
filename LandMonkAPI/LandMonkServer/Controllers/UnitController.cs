@@ -38,6 +38,7 @@ namespace LandMonkServer.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
+
         [HttpGet("{id}", Name = "UnitById")]
         public IActionResult GetUnitById(int id)
         {
@@ -62,7 +63,7 @@ namespace LandMonkServer.Controllers
         }
 
         [HttpPost]
-         public IActionResult CreateUnit([FromBody]Unit unit)
+        public IActionResult CreateUnit([FromBody]Unit unit)
         {
             try
             {
@@ -80,14 +81,75 @@ namespace LandMonkServer.Controllers
 
                 _repository.Unit.CreateUnit(unit);
 
-                return CreatedAtRoute("UnitById", new  { id = unit.Id }, unit);
+                return CreatedAtRoute("UnitById", new { id = unit.Id }, unit);
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Something went wrong inside GetAllUnits action: {ex.Message}");
+                _logger.LogError($"Something went wrong inside CreateUnit action: {ex.Message}");
                 return StatusCode(500, "Internal server error");
             }
         }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateUnit(int id, [FromBody]Unit unit)
+        {
+            try
+            {
+                if (unit.IsObjectNull())
+                {
+                    _logger.LogError("Unit object sent from client is null");
+                    return BadRequest("Unit object is null");
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    _logger.LogError("Invalid unit object sent from client");
+                    return BadRequest("Invalid Unit object");
+                }
+
+                var dbUnit = _repository.Unit.GetUnitById(id);
+
+                if (dbUnit.IsEmptyObject())
+                {
+                    _logger.LogError($"Unit with id {id} was not found");
+                    return NotFound();
+                }
+                _repository.Unit.UpdateUnit(dbUnit, unit);
+
+                return NoContent();
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong inside UpdateUnit action: {ex.Message}");
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteUnit(int id)
+        {
+            try
+            {
+                var unit = _repository.Unit.GetUnitById(id);
+
+                if (unit.IsEmptyObject())
+                {
+                    _logger.LogError($"Unit with id {id} was not found");
+                    return NotFound();
+                }
+
+                _repository.Unit.DeleteUnit(unit);
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong inside DeleteUnit action: {ex.Message}");
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
 
     }
 }
