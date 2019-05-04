@@ -1,4 +1,4 @@
-insert into Properties values (default, 'Jana', '0301 Ludington Plaza', 'Jackson', 'TN', '38308'),
+unitsinsert into Properties values (default, 'Jana', '0301 Ludington Plaza', 'Jackson', 'TN', '38308'),
  (default, 'Cardinal', '6 Texas Trail', 'San Diego', 'CA', '92170'),
  (default, 'Johnson', '937 Banding Hill', 'Alhambra', 'CA', '91841'),
  (default, 'Armistice', '9800 Sullivan Place', 'Chattanooga', 'TN', '37410'),
