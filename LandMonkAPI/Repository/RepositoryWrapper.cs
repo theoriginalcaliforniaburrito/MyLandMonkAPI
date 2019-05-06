@@ -1,5 +1,6 @@
 using Entities;
 using Contracts;
+
 namespace Repository
 {
     public class RepositoryWrapper : IRepositoryWrapper
@@ -8,7 +9,7 @@ namespace Repository
         private IPropertyRepository _property;
         private IUnitRepository _unit;
         private ITenantRepository _tenant;
-
+        private IUserRepository _user;
 
 
         public RepositoryWrapper(RepositoryContext repositoryContext)
@@ -43,6 +44,16 @@ namespace Repository
                     _tenant = new TenantRepository(_repoContext);
                 }
                 return _tenant;
+            }
+        }
+
+        public IUserRepository User {
+            get {
+                if (_user == null)
+                {
+                    _user = new UserRepository(_repoContext);
+                }
+                return _user;
             }
         }
     }

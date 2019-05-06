@@ -352,3 +352,4 @@ MigrationBackup/
 # NLog
 logs/
 internal_logs/
+LandMonkAPI/LandMonkServer/appsettings.json
