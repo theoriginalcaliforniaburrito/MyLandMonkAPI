@@ -22,11 +22,15 @@ namespace Repository
         }
         public User GetUserById(int UserId)
         {
-            return FindByCondition(account => account.Id.Equals(UserId))
+            return FindByCondition(user => user.Id.Equals(UserId))
             .DefaultIfEmpty(new User())
             .FirstOrDefault();
         }
-
+        public User GetUserByUsername(string username){
+            return FindByCondition(user => user.Username.Equals(username))
+            .DefaultIfEmpty(new User())
+            .FirstOrDefault();
+        }
         public void CreateUser(User user)
         {
             Create(user);
