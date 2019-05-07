@@ -69,12 +69,12 @@ namespace LandMonkServer.Controllers
             {
                 var User = _repository.User.GetUserByUsername(username);
 
-                if (User.IsEmptyObject())
-                {
-                    _logger.LogError($"User with username {username} was not found");
-                    return NotFound();
-                }
-                _logger.LogInfo($"Returned User with username {username}");
+                // if (User.IsEmptyObject())
+                // {
+                //     _logger.LogError($"User with username {username} was not found");
+                //     return NotFound();
+                // }
+                // _logger.LogInfo($"Returned User with username {username}");
                 return Ok(User);
 
             }
