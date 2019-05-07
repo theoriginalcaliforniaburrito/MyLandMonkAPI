@@ -62,6 +62,29 @@ namespace LandMonkServer.Controllers
             }
         }
 
+        [HttpGet("{username}/name")]
+        public IActionResult GetUserByUsername(string username)
+        {
+            try
+            {
+                var User = _repository.User.GetUserByUsername(username);
+
+                if (User.IsEmptyObject())
+                {
+                    _logger.LogError($"User with username {username} was not found");
+                    return NotFound();
+                }
+                _logger.LogInfo($"Returned User with username {username}");
+                return Ok(User);
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong inside GetUserByUsername action: {ex.Message}");
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
         [HttpPost]
         public IActionResult CreateUser([FromBody]User user)
         {
