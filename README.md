@@ -4,7 +4,7 @@
 * LandMonk is a property management software that empowers landlords to self-manage their rental homes and apartments. 
 
 ## My Developer Role
-* Creation of database with CRUD functions:
+* Created the database with CRUD functions using MySQL and .NET by contributing the following:
 * 1. Created tables for tenants, properties, and units with their respective relationships.
 * 2. Seeded database with information on properties, tenants, and units. 
 * 3. Created Generic Repository with user classes and a wrapper. 
